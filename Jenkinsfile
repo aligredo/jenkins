@@ -38,17 +38,16 @@ pipeline {
         sleep 15
       }
     }
-    
-    post {
+
+  }
+  post {
         always {
             echo '## BEGIN ALWAYS BLOCK ##'
             echo 'Cleaning'
-            sleep 15
+            sleep 5
             echo '## END ALWAYS BLOCK ##'
         }
-    }
-
-  }
+   }
   environment {
     Main = '0'
   }
