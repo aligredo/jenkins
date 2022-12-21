@@ -2,6 +2,13 @@
 pipeline {
   agent any
   stages {
+    
+    stage('Purge') {
+      steps {
+        helloWorld()
+        echo 'Purging Running Old Builds From This PR'
+      }
+    }
     stage('Stage One') {
       steps {
         helloWorld()
