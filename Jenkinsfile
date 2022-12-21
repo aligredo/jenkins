@@ -38,19 +38,14 @@ pipeline {
         sleep 15
       }
     }
-
-    stage('Stage Five') {
-      steps {
-        echo 'Stage: 5'
-        sleep 15
-      }
-    }
-
-    stage('Clean') {
-      steps {
-        echo 'Cleaning'
-        sleep 5
-      }
+    
+    post {
+        always {
+            echo '## BEGIN ALWAYS BLOCK ##'
+            echo 'Cleaning'
+            sleep 15
+            echo '## END ALWAYS BLOCK ##'
+        }
     }
 
   }
