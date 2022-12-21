@@ -1,5 +1,4 @@
 @Library('shared-lib') _
-def pipeline = new killOldBuilds()
 
 pipeline {
   agent any
@@ -7,7 +6,7 @@ pipeline {
    
     stage('Purge') {
       steps {
-        pipeline.killOldBuilds()
+        killOldBuilds()
         echo 'Purging Running Old Builds From This PR'
       }
     }
