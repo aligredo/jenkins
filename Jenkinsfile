@@ -1,8 +1,10 @@
+@Library('shared-lib') _
 pipeline {
   agent any
   stages {
     stage('Stage One') {
       steps {
+        helloWorld()
         echo 'Stage: 1'
         sleep 15
       }
