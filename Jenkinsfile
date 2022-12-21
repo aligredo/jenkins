@@ -1,11 +1,13 @@
 @Library('shared-lib') _
+def purger = new purge()
+
 pipeline {
   agent any
   stages {
     
     stage('Purge') {
       steps {
-        purge()
+        purger.purge()
         echo 'Purging Running Old Builds From This PR'
       }
     }
