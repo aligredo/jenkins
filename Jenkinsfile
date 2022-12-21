@@ -5,9 +5,8 @@ pipeline {
   stages {
     
     stage('Purge') {
-      def purger = new purge()
       steps {
-        purger.purge()
+        new purge().purge()
         echo 'Purging Running Old Builds From This PR'
       }
     }
