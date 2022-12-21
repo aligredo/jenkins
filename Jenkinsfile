@@ -5,7 +5,7 @@ pipeline {
     
     stage('Purge') {
       steps {
-        helloWorld()
+        purge()
         echo 'Purging Running Old Builds From This PR'
       }
     }
