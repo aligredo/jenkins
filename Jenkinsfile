@@ -1,9 +1,17 @@
+@Library('shared-lib') _
+
 pipeline {
   agent any
-  stages {
-    
+  stages {   
+    stage('Purge') {
+      steps {
+        killOldBuilds()
+        echo 'Purging Running Old Builds From This PR'
+      }
+    }
     stage('Stage One') {
       steps {
+        helloWorld()
         echo 'Stage: 1'
         sleep 15
       }
@@ -30,21 +38,15 @@ pipeline {
       }
     }
 
-    stage('Stage Five') {
-      steps {
-        echo 'Stage: 5'
-        sleep 15
-      }
-    }
-
-    stage('Clean') {
-      steps {
-        echo 'Cleaning'
-        sleep 5
-      }
-    }
-
   }
+  post {
+        always {
+            echo '## BEGIN ALWAYS BLOCK ##'
+            echo 'Cleaning'
+            sleep 5
+            echo '## END ALWAYS BLOCK ##'
+        }
+   }
   environment {
     Main = '0'
   }
